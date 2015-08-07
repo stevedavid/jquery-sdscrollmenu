@@ -52,7 +52,7 @@ You would then need to style respectively the `.active` class and the `.active.f
     color: #146;
 }
 
-.sdsm-menu li.active.first{
+.sdsm-menu li.active.first {
     font-weight: bold;
     color: #a19d38;
 }
