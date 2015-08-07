@@ -43,6 +43,24 @@ First of all, you would need to set the plugin on a large `<div>` filled with te
 </div>
 ```
 
+* **CSS**
+You would then need to style respectively the `.active` class and the `.active.first` class and they are the ones applies to the matching `<li>` in the menu, like so:
+
+```CSS
+.sdsm-menu li:hover {
+    color: #146;
+}
+
+.sdsm-menu li.active.first{
+    font-weight: bold;
+    color: #a19d38;
+}
+
+.sdsm-menu li.active {
+    color: #a19d38;
+}
+```
+
 * **jQuery**
 
 The syntax of `jQuery.sdScrollMenu`'s initialization is the following:
