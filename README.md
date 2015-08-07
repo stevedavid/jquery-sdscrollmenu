@@ -5,7 +5,7 @@ A light-weight jQuery plugin to generate a dynamic menu based on `<h*>` titles w
 * **v0.1** - 07/08/2015
 
 ## Requirements
-`jQuery.sdFilterMe` requires the latest version of [`jQuery`](https://jquery.com/download/).
+`jQuery.sdScrollMenu` requires the latest version of [`jQuery`](https://jquery.com/download/).
 
 ## Demo
 Follow [this JSFiddle link](https://jsfiddle.net/D4V1D/c59f3y37/) to see the plugin in action.
