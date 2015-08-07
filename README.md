@@ -13,6 +13,7 @@ Follow [this JSFiddle link](https://jsfiddle.net/D4V1D/c59f3y37/) to see the plu
 ## Features
 * supports unlimited number of titles
 * highlights titles when scrolling with `.active` class
+* responsive with inner scrollbar and focus on `.active` elements
 
 ## Usage
 * **HTML**
