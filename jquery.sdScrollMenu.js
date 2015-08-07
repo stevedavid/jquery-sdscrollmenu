@@ -39,27 +39,78 @@
 
         $(window).on('load', function() {
             $.sdScrollMenu.activeLinks(this, $menu, options);
+            $.sdScrollMenu.innerScroll($menu, options);
         });
 
         $(window).on('resize', function() {
             $.sdScrollMenu.activeLinks(this, $menu, options);
+            $.sdScrollMenu.innerScroll($menu, options);
         });
+
+    };
+
+    $.sdScrollMenu.scrollMenu = function($li, $menu, options) {
+        if(typeof($li.position()) !== 'undefined') {
+            var liTop = $li.position().top;
+            if(liTop > $menu.height() || liTop < 0) {
+                $menu.animate({
+                    scrollTop: liTop
+                }, {
+                    duration: 500,
+                });
+            }
+        }
+    };  
+
+    $.sdScrollMenu.innerScroll = function($menu, options) {
+        if($menu.css('overflow-y') == 'scroll') {
+            $menu.css({
+                'height': 'auto',
+                'overflow-y': 'auto',
+            })
+        } else if($menu.height() > $(window).height()) {
+            $menu.css({
+                'height': $(window).height() - $menu.position().top,
+                'overflow-y': 'scroll',
+            });
+
+            
+        }
+
+
     };
 
     $.sdScrollMenu.activeLinks = function(that, $menu, options) {
         var positionTop = $(that).scrollTop()
             , interval = positionTop + $(window).height()
-            , offsetTop;
+            , offsetTop
+            , k = 0
+            , activeLis = [];      
 
-        $menu.find('li').removeClass('active');
         $($.lis).each(function(i) {
             offsetTop = $(this).offset().top;
             if(offsetTop <= interval && offsetTop >= positionTop) {
-                $menu.find('[data-id=' + i + ']').addClass('active');
+                ++k;
+                activeLis[i] = $menu.find('[data-id=' + i + ']');
             }
         });
 
+        if(!k) {
+            $menu.find('li.active:not(:last-child)').removeClass('active');
+
+        } else {
+            $menu.find('li.active').removeClass('active');
+        }
+
+        for(var i = 0; i < activeLis.length; ++i) {
+            $(activeLis[i]).addClass('active');
+        }
+
+
+
         $menu.find('.active').removeClass('first').eq(0).addClass('first');
+
+        $.sdScrollMenu.scrollMenu($menu.find('.active.first'), $menu, options);
     };
 
     $.sdScrollMenu.highlightTitle = function($h, options) {
