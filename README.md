@@ -46,7 +46,7 @@ First of all, you would need to set the plugin on a large `<div>` filled with te
 
 * **CSS**
 
-You would then need to style respectively the `.active` class and the `.active.first` class and they are the ones applies to the matching `<li>` in the menu, like so:
+You would then need to style respectively the `.active` class and the `.active.first` class as they are the ones applied to the matching `<li>` in the menu, like so:
 
 ```CSS
 .sdsm-menu li:hover {
